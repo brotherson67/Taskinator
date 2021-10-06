@@ -25,14 +25,27 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 //removed to add formE1EventListener
 
 
-// Second iteration of createFormHandler function
+// final? iteration of createFormHandler function
 var createFormHandler = function(event) {
   event.preventDefault();
   var taskNameInput = document.querySelector("input[name='task-name']").value; //here we make a variable for the input element with the name property. Then we call the 'value' property. this will give us what the user inputs
+  var taskTypeInput = document.querySelector("select[name='task-type']").value; //variable that gets the 'value' of the select task type field.
+  console.log(taskTypeInput)
 
+  //create list item
   var listItemE1 = document.createElement("li");
   listItemE1.className = "task-item";
-  listItemE1.textContent = taskNameInput;
+
+  //create div to hold task info and add to list item
+  var taskInfoE1 = document.createElement("div");
+  //give the div a class name
+  taskInfoE1.className = "task-info";
+  //add HTML content to div
+  taskInfoE1.innerHTML = "<h3 class='task-name'>" +taskNameInput + "</h3><span class='task-type'>" + taskTypeInput + '</span>'
+
+  listItemE1.appendChild(taskInfoE1);
+
+  //add entire list item to list
   tasksToDoEl.appendChild(listItemE1);
 };
 
