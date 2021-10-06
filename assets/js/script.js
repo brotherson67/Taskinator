@@ -54,19 +54,25 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 //Create handler function
 var taskFormHandler = function(event) {
   event.preventDefault();
-  var taskNameInput = document.querySelector("input[name='task-name']").value; //here we make a variable for the input element with the name property. Then we call the 'value' property. this will give us what the user inputs
-  var taskTypeInput = document.querySelector("select[name='task-type']").value; //variable that gets the 'value' of the select task type field.
+  var taskNameInput = document.querySelector("input[name='task-name']").value;
+  var taskTypeInput = document.querySelector("select[name='task-type']").value;
 
-  //package up data as an object
+  //check if input values are empty strings
+  if (!taskNameInput || !taskTypeInput) {
+    alert("You need to fiil out the task form!")
+    return false;
+  }
+
+  formEl.requestFullscreen();
+  // package up data as an object
   var taskDataObj = {
-    name: taskNameInput,
-    type: taskTypeInput
+      name: taskNameInput,
+      type: taskTypeInput
   };
 
-  //send it as an argument to createTaskE1
-  createTaskE1(taskDataObj);
+  // send it as an argument to createTaskEl
+  createTaskEl(taskDataObj);
 };
-
 
 var createTaskEl = function (taskDataObj) {
   // create list item
