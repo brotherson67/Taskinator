@@ -1,6 +1,6 @@
 var taskIdCounter = 0;
-var formEl = document.querySelector("#task-form");
-var buttonE1 = document.querySelector("#save-task");
+var formEl = document.querySelector("#task-form");//replaces buttonE1
+//var buttonE1 = document.querySelector("#save-task");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 
 
@@ -12,40 +12,30 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 //   tasksToDoEl.appendChild(listItemE1);
 // });
 
-//function to dynamically create task
-var createTaskHandler = function() {
-  var listItemE1 = document.createElement("li");
-  listItemE1.className = "task-item";
-  listItemE1.textContent = "This is a new task";
-  tasksToDoEl.appendChild(listItemE1);
-}
+//initial commit of function to dynamically create task
+// var createTaskHandler = function() {
+//   var listItemE1 = document.createElement("li");
+//   listItemE1.className = "task-item";
+//   listItemE1.textContent = "This is a new task";
+//   tasksToDoEl.appendChild(listItemE1);
+//};
 
 //this is the event listener
-buttonE1.addEventListener("click", createTaskHandler);
+//buttonE1.addEventListener("click", createTaskHandler);
+//removed to add formE1EventListener
 
-var createFormHandler = function (event) {
+
+// Second iteration of createFormHandler function
+var createFormHandler = function(event) {
   event.preventDefault();
-  var taskNameInput = document.querySelector("input[name='task-name']").value;
-  var taskTypeInput = document.querySelector("select[name='task-type']").value;
-
-//   check if input values are empty strings
-if (!taskName || !taskTypeInput) {
-    alert("You need to fill out the task form!");
-    return false;
+  
+  var listItemE1 = document.createElement("li");
+  listItemE1.className = "task-item";
+  listItemE1.textContent = "This is a new task.";
+  tasksToDoEl.appendChild(listItemE1);
 };
 
-formEl.reset();
 
-//   package up data as an object
-  var taskDataObj = {
-      name: taskNameInput,
-      type: taskTypeInput
-  };
-
-//   send it as an argument to createTaskE1
-  createTaskE1(taskDataObj);
-
-};
 
 var createTaskE1 = function(taskDataObj) {
     // create list item
