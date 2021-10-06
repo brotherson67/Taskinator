@@ -62,7 +62,9 @@ var taskFormHandler = function(event) {
     alert("You need to fiil out the task form!")
     return false;
   }
-
+  
+  formEl.reset();  formEl.reset();
+  
   formEl.requestFullscreen();
   // package up data as an object
   var taskDataObj = {
