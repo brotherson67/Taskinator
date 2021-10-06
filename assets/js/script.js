@@ -28,10 +28,11 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 // Second iteration of createFormHandler function
 var createFormHandler = function(event) {
   event.preventDefault();
-  
+  var taskNameInput = document.querySelector("input[name='task-name']").value; //here we make a variable for the input element with the name property. Then we call the 'value' property. this will give us what the user inputs
+
   var listItemE1 = document.createElement("li");
   listItemE1.className = "task-item";
-  listItemE1.textContent = "This is a new task.";
+  listItemE1.textContent = taskNameInput;
   tasksToDoEl.appendChild(listItemE1);
 };
 
