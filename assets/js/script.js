@@ -1,6 +1,27 @@
 var taskIdCounter = 0;
 var formEl = document.querySelector("#task-form");
+var buttonE1 = document.querySelector("#save-task");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
+
+
+//This is an anonymous function
+// buttonE1.addEventListener("click", function() {
+//   var listItemE1 = document.createElement("li");
+//   listItemE1.className = "task-item";
+//   listItemE1.textContent = "This is a new task, soon there will be more";
+//   tasksToDoEl.appendChild(listItemE1);
+// });
+
+//function to dynamically create task
+var createTaskHandler = function() {
+  var listItemE1 = document.createElement("li");
+  listItemE1.className = "task-item";
+  listItemE1.textContent = "This is a new task";
+  tasksToDoEl.appendChild(listItemE1);
+}
+
+//this is the event listener
+buttonE1.addEventListener("click", createTaskHandler);
 
 var createFormHandler = function (event) {
   event.preventDefault();
