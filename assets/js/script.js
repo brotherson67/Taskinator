@@ -97,4 +97,13 @@ var createTaskEl = function (taskDataObj) {
   taskIdCounter++;
 };
 
+//Function to create buttons with each task
+let createTaskActions = function(taskId) {
+  var actionContainerE1 = document.createElement("div");
+  actionContainerE1.className = "task-actions";
+
+  //create edit button
+  var editButtonE1 = document.createElement("button")
+};
+
 formEl.addEventListener("submit", taskFormHandler);
