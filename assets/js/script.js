@@ -1,7 +1,7 @@
-var taskIdCounter = 0;
-var formEl = document.querySelector("#task-form");//replaces buttonE1
-//var buttonE1 = document.querySelector("#save-task");
-var tasksToDoEl = document.querySelector("#tasks-to-do");
+// var taskIdCounter = 0;
+// var formEl = document.querySelector("#task-form");//replaces buttonE1
+// var buttonE1 = document.querySelector("#save-task");
+// var tasksToDoEl = document.querySelector("#tasks-to-do");
 
 
 //This is an anonymous function
@@ -49,7 +49,9 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 //   tasksToDoEl.appendChild(listItemE1);
 // };
 
-
+var taskIdCounter = 0;
+var formEl = document.querySelector("#task-form");//replaces buttonE1
+var tasksToDoEl = document.querySelector("#tasks-to-do");
 
 //Create handler function
 var taskFormHandler = function(event) {
@@ -90,8 +92,12 @@ var createTaskEl = function (taskDataObj) {
   taskInfoEl.innerHTML = "<h3 class='task-name'>" + taskDataObj.name + "</h3><span class='task-type'>" + taskDataObj.type + "</span>";
   listItemEl.appendChild(taskInfoEl);
 
+  let taskActionsE1 = createTaskActions(taskIdCounter);
+  listItemEl.appendChild(taskActionsE1);
+  // console.log(taskActionsE1);
   // add entire list item to list
   tasksToDoEl.appendChild(listItemEl);
+
 
   //increase task counter for next id
   taskIdCounter++;
@@ -104,6 +110,41 @@ let createTaskActions = function(taskId) {
 
   //create edit button
   var editButtonE1 = document.createElement("button")
+  editButtonE1.textContent = document.createElement("button");
+  editButtonE1.className = "btn edit-btn";
+  editButtonE1.setAttribute("data-task-id", taskId);
+
+  actionContainerE1.appendChild(editButtonE1);
+
+  //create delete button
+  var deleteButtonE1 = document.createElement("button");
+  deleteButtonE1.textContent = "Delete";
+  deleteButtonE1.className = "btn delet-btn";
+  deleteButtonE1.setAttribute("data-task-id", taskId);
+
+  actionContainerE1.appendChild(deleteButtonE1);
+
+  var statusSelectE1 = document.createElement("select");
+  statusSelectE1.className = "select-status";
+  statusSelectE1.setAttribute("name", "status-change");
+  statusSelectE1.setAttribute("data-task-id", taskId);
+
+  var statusChoices = ["To Do", "In Progress", "Completed"];
+  for (let i =0; i < statusChoices.length; i++) {
+    //create option element
+    let statusOptionE1 = document.createElement("option");
+    statusOptionE1.textContent = statusChoices[i];
+    statusOptionE1.setAttribute("value", statusChoices[1]);
+
+    //append to select
+    statusSelectE1.appendChild(statusOptionE1);
+  }
+
+  actionContainerE1.appendChild(statusSelectE1);
 };
 
 formEl.addEventListener("submit", taskFormHandler);
+
+
+
+// SOmething is broken, its not showing the buttons as ti should. module 4.3-6
