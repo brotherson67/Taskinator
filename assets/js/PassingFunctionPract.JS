@@ -51,3 +51,27 @@ console.log(calc(2, 3, multiply));
 // this is called an anonymous function
 // its good for only a single use
 console.log(calc(2, 3, function(a, b) {return a-b}));
+
+// insure that global variables are defined first
+// make variables that make sense
+//plan steps first
+//  what does project need
+//      how do you do each step
+//      I need a function with a callback
+//      
+function innercallback() = {
+    var otherVar = "new variable";
+    //because of scope the vaeriable will only be inside the bracets
+
+    function nestedFunction() {
+        return "hi"
+    }
+    return otherVar;
+};
+
+Pickles()
+function hamburger(nestedFunction) {
+    return "second"
+}
+
+//return is ALWAYS tje last line of the function
